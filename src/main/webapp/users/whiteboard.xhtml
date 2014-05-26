@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/templatefile8.xhtml">
+            <ui:define name="top">
+                <h:form>
+                    <ui:include src="topuser.xhtml" />
+                </h:form>
+            </ui:define>
+
+
+            <ui:define name ="content">
+                <h:form>
+                    <h:outputLabel value="#{loggedUser.loggedUser}"/>
+                    <h:commandLink value="Logout" action="#{userController.logout()}"/>
+                </h:form>
+                <br/>
+                <form name="inputForm">
+                    <div class="list-group col-md-3" >
+                        <ul class="list-group">
+                            <li class="list-group-item info">Color</li>
+                            <li class="list-group-item"><input class="list-group-item" type="radio" name="color" value="#FF0000" checked="true"/>Red</li>
+                            <li class="list-group-item"><input class="list-group-item" type="radio" name="color" value="#0000FF"/>Blue</li>
+                            <li class="list-group-item"><input class="list-group-item" type="radio" name="color" value="#FF9900"/>Orange</li>
+                            <li class="list-group-item"><input class="list-group-item" type="radio" name="color" value="#33CC33"/>Green</li>
+                        </ul>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Shape</th>
+                            <td><input type="radio" name="shape" value="square" checked="true"/>Square</td>
+                            <td><input type="radio" name="shape" value="circle"/>Circle</td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+
+                        <tr>
+                            <th> </th>
+                            <td><input type="submit" value="Send Snapshot" onclick="defineImageBinary();
+                                    return false;"/></td>
+
+                            <td><input type="submit" value="Clear" onclick="clearImage();
+                                    return false;"/></td>
+                            <td> </td>
+                        </tr>
+
+                    </table>
+                </form>
+                <h:form id="form">
+                    <h:inputHidden id="hidden" value="#{imageController.dataURL}" />
+                    <h:commandLink value="Submit"   onclick="getHidden()" action="#{imageController.test()}"/>                                  
+                </h:form>
+                <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/whiteboard.js"></script>
+                <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/websocket.js"></script>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

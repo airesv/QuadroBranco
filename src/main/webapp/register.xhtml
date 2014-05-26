@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Login Form</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/templates/templatefile8.xhtml">
+            <ui:define name="top">
+                <h:form>
+                    <ui:include src="./templates/topregister.xhtml" />
+                </h:form>
+            </ui:define>
+
+            <ui:define name ="content">
+
+                        <div class="panel panel-default col-md-3" >
+                            <div class="panel-heading  ">
+                                Register
+                            </div>     
+
+                            <div  class="panel-body">
+
+
+                                <h:form id="loginform"  >
+
+                                    <div  class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <h:inputText id="login-username" class="form-control" value="#{userController.nameUser}"/>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        
+                                        <h:inputSecret  id="login-password"  class="form-control"  value="#{userController.passwordUser}"/>
+                                    </div>
+
+
+                                        <!-- Button -->
+
+                                        <div >
+                                            <h:commandButton id="btn-login" value="Register" action="#{userController.insertUser()}"/>
+                                                           
+                                        </div>
+                                </h:form>     
+
+                            </div>                     
+                        </div>  
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+

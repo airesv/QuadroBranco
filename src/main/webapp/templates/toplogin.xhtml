@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head />
+    <body>
+        <ui:composition>
+
+            <nav role="navigation" class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <h:link class="navbar-brand" value="Colaborative Whiteboard"/>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><h:link  outcome="/users/whiteboard"  value="Login" /></li>
+                        <li><h:link  outcome="register" value="Register" /></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </ui:composition>
+    </body>
+</html>
